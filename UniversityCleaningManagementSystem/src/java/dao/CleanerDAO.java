@@ -1,7 +1,7 @@
-package com.cleaninginventory.dao;
+package dao;
 
-import com.cleaninginventory.model.Cleaner;
-import com.cleaninginventory.util.DBUtil;
+import model.Cleaner;
+import util.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,10 +13,10 @@ import java.util.List;
  * Handles all CRUD operations and search/filter queries for cleaners.
  * Part of: Cleaners Management Module (Team Member 4)
  *
- * NOTE: This assumes a shared DBUtil.getConnection() utility class exists
- * in the project (com.cleaninginventory.util.DBUtil), returning a live
- * java.sql.Connection. Update the package/import to match whatever your
- * team's shared DB connection class is actually called.
+ * NOTE: This assumes util.DBConnection has a static getConnection() method
+ * that returns a live java.sql.Connection (that class is currently an empty
+ * stub in the repo — confirm the actual method name with whoever implements
+ * it, and update the calls below if it differs).
  *
  * Expected table structure (adjust column names to match your schema):
  *
@@ -39,7 +39,7 @@ public class CleanerDAO {
         String sql = "INSERT INTO cleaners (first_name, last_name, contact_number, email, department, status) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = DBUtil.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, cleaner.getFirstName());
@@ -63,7 +63,7 @@ public class CleanerDAO {
     public Cleaner getCleanerById(int cleanerId) {
         String sql = "SELECT * FROM cleaners WHERE cleaner_id = ?";
 
-        try (Connection conn = DBUtil.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, cleanerId);
@@ -84,7 +84,7 @@ public class CleanerDAO {
         List<Cleaner> cleaners = new ArrayList<>();
         String sql = "SELECT * FROM cleaners ORDER BY last_name, first_name";
 
-        try (Connection conn = DBUtil.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -116,7 +116,7 @@ public class CleanerDAO {
         }
         sql.append(" ORDER BY last_name, first_name");
 
-        try (Connection conn = DBUtil.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
 
             int paramIndex = 1;
@@ -151,7 +151,7 @@ public class CleanerDAO {
         String sql = "UPDATE cleaners SET first_name = ?, last_name = ?, contact_number = ?, "
                 + "email = ?, department = ?, status = ? WHERE cleaner_id = ?";
 
-        try (Connection conn = DBUtil.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, cleaner.getFirstName());
@@ -176,7 +176,7 @@ public class CleanerDAO {
     public boolean deleteCleaner(int cleanerId) {
         String sql = "DELETE FROM cleaners WHERE cleaner_id = ?";
 
-        try (Connection conn = DBUtil.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, cleanerId);

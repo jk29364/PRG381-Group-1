@@ -1,13 +1,13 @@
-package com.cleaninginventory.servlet;
+package controller;
 
-import com.cleaninginventory.dao.CleanerDAO;
-import com.cleaninginventory.model.Cleaner;
+import dao.CleanerDAO;
+import model.Cleaner;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
