@@ -1,7 +1,6 @@
 package controller;
 
 import dao.MaterialDAO;
-import jakarta.servlet.ServletException;
 import model.Material;
 
 import java.io.IOException;
@@ -11,6 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
 
 /*
  * ==========================================================
@@ -50,18 +50,10 @@ public class MaterialServlet extends HttpServlet {
         }
         
         switch (action){
-            case "delete":
-                deleteMaterial(request, response);
-                break;
-            case "edit":
-                showEditForm(request, response);
-                break;
-            case "search":
-                searchMaterial(request, response);
-                break;
-            default:
-                listMaterials(request, response);
-                break;    
+            case "delete" -> deleteMaterial(request, response);
+            case "edit" -> showEditForm(request, response);
+            case "search" -> searchMaterial(request, response);
+            default -> listMaterials(request, response);    
         }
     }
     
@@ -72,16 +64,104 @@ public class MaterialServlet extends HttpServlet {
         
         String action = request.getParameter("action");
         
-        if ("add".equals(action){
+        if ("add".equals(action)){
             addMaterial(request, response);
-        } else if {
+        } else if ("update".equals(action)){
             updateMaterial(request, response);
         }
     }
     
     //Add Material
-    
-    
+    private void addMaterial(HttpServletRequest request, HttpServletResponse response) throws IOException {
         
+        String name = request.getParameter("materialName");
+        String category = request.getParameter("category");
+        
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        int reorderLevel = Integer.parseInt(request.getParameter("reorderLevel"));
+        int supplierId = Integer.parseInt(request.getParameter("supplierId"));
+        
+        //Prevents negative stock values
+        if (quantity < 0) {
+            quantity = 0;
+        }
+        
+        Material material = new Material();
+        
+        material.setMaterialName(name);
+        material.setCategory(category);
+        material.setQuantity(quantity);
+        material.setReorderLevel(reorderLevel);
+        material.setSupplierId(supplierId);
+        
+        materialDAO.addMaterial(material);
+        
+        response.sendRedirect("MaterialServlet");
+    }  
+    
+    //Update Material
+    private void updateMaterial(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        
+        Material material = new Material();
+        
+        material.setMaterialId(Integer.parseInt(request.getParameter("materialId")));
+        material.setMaterialName(request.getParameter("materialName"));
+        material.setCategory(request.getParameter("category"));
+        material.setQuantity(Integer.parseInt(request.getParameter("quantity")));
+        material.setReorderLevel(Integer.parseInt(request.getParameter("reorderLevel")));
+        material.setSupplierId(Integer.parseInt(request.getParameter("supplierId")));
+        
+        materialDAO.updateMaterial(material);
+        
+        response.sendRedirect("MaterialServlet");
+    } 
+    
+    //showEditForm
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        Material material = materialDAO.getMaterialByID(id);
+        
+        request.setAttribute("material", material);
+        
+        request.getRequestDispatcher("editMaterial.jsp").forward(request, response);
+        
+    } 
+    
+    //Delete Material
+    private void deleteMaterial(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        materialDAO.deleteMaterial(id);
+        
+        response.sendRedirect("MaterialServlet");
+        
+    } 
+    
+    //Search Material
+    private void searchMaterial(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    
+        String keyword = request.getParameter("keyword");
+        
+        List<Material> materials = materialDAO.searchMaterials(keyword);
+        
+        request.setAttribute("materials", materials);
+        
+        request.getRequestDispatcher("materials.jsp").forward(request, response);
+        
+    } 
+    
+    //List Materials
+    private void listMaterials(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        
+        List<Material> materials = materialDAO.getAllMaterials();
+        
+        request.setAttribute("materials", materials);
+        
+        request.getRequestDispatcher("materials.jsp").forward(request, response);
+        
+    } 
         
 }
