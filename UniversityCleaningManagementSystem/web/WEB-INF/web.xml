@@ -2,10 +2,21 @@
 <web-app version="6.1" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd">
     <servlet>
         <servlet-name>DashboardServlet</servlet-name>
-        <servlet-class>controller.DashboardServlet</servlet-class>
+        <servlet-class>controller.DashboardServlet</servlet-class>        
     </servlet>
     <servlet-mapping>
         <servlet-name>DashboardServlet</servlet-name>
-        <url-pattern>/DashboardServlet</url-pattern>
+        <url-pattern>/DashboardServlet</url-pattern>        
+    </servlet-mapping>
+    
+    <!-- Material Servlet -->
+    <servlet>
+        <servlet-name>MaterialServlet</servlet-name>
+        <servlet-class>controller.MaterialServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MaterialServlet</servlet-name>
+        <url-pattern>/MaterialServlet</url-pattern>
     </servlet-mapping>
 </web-app>
