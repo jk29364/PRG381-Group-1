@@ -143,7 +143,7 @@
                 <td>
                     <%if(material.isLowStock()) {%>
                     
-                        <span class="lowstock">
+                        <span class="lowStock">
                             LOW STOCK
                         </span>
                     
@@ -153,7 +153,7 @@
                 </td>
                 <td>
                     <a class="button edit" 
-                        href="MaterialServlet?action=edit%id=<%=material.getMaterialId()%>">
+                        href="MaterialServlet?action=edit&id=<%=material.getMaterialId()%>">
                         Edit   
                     </a>
                     &nbsp;

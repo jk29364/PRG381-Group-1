@@ -99,7 +99,7 @@ public class MaterialDAO {
     }
     
     //Get Material by ID
-    public Material getMaterialByID(int id){
+    public Material getMaterialById(int id){
   
         String sql = "SELECT * FROM Materials WHERE materialId = ?";
         

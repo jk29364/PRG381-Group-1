@@ -121,7 +121,7 @@ public class MaterialServlet extends HttpServlet {
         
         int id = Integer.parseInt(request.getParameter("id"));
         
-        Material material = materialDAO.getMaterialByID(id);
+        Material material = materialDAO.getMaterialById(id);
         
         request.setAttribute("material", material);
         
