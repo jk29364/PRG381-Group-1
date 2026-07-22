@@ -8,7 +8,7 @@ package model;
 public class Material {
     
     //Variables
-    private int materialTd;
+    private int materialId;
     private String materialName;
     private String category;
     private int quantity;
@@ -19,8 +19,8 @@ public class Material {
     public Material(){}
     
     //Constructor with parameters
-    public Material(int materialTd, String materialName, String category, int quantity, int reorderLevel, int supplierId) {
-        this.materialTd = materialTd;
+    public Material(int materialId, String materialName, String category, int quantity, int reorderLevel, int supplierId) {
+        this.materialId = materialId;
         this.materialName = materialName;
         this.category = category;
         this.quantity = quantity;
@@ -29,8 +29,8 @@ public class Material {
     }
     
     //Getters  
-    public int getMaterialTd() {
-        return materialTd;
+    public int getMaterialId() {
+        return materialId;
     }
 
     public String getMaterialName() {
@@ -54,8 +54,8 @@ public class Material {
     }
     
     //Setters
-    public void setMaterialTd(int materialTd) {
-        this.materialTd = materialTd;
+    public void setMaterialId(int materialTd) {
+        this.materialId = materialTd;
     }
 
     public void setMaterialName(String materialName) {
