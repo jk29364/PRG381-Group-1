@@ -4,13 +4,13 @@
 
 ## Technologies Used
 
-- **Java (JDK 21)** – Backend application development.
+- **Java (JDK 26)** – Backend application development.
 - **Java Servlets** – Handles HTTP requests and application logic.
 - **JavaServer Pages (JSP)** – Creates dynamic web pages.
 - **HTML5 & CSS3** – Frontend structure and styling.
 - **PostgreSQL** – Relational database for storing application data.
 - **PostgreSQL JDBC Driver** – Connects the Java application to PostgreSQL.
-- **Apache Tomcat 10.1** – Web server and servlet container.
+- **Apache Tomcat 10.1 or 11** – Web server and servlet container.
 - **Apache NetBeans IDE 21** – Development environment.
 - **Git & GitHub** – Version control and team collaboration.
 
