@@ -159,7 +159,7 @@ public class MaterialDAO {
     }
     
     //Delete Material
-    public boolean deleteupdateMaterial(int id){
+    public boolean deleteMaterial(int id){
         String sql = "DELETE FROM Materials WHERE materialId=?";
         
         try{
