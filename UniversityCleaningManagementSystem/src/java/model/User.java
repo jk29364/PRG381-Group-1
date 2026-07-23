@@ -1,4 +1,9 @@
 package model;
+ 
+/**
+ * User model class representing a row in the "users" table.
+ * Acts as a simple data carrier (POJO) between the DAO, servlets, and JSP pages.
+ */
 
 public class User {
     //fields
@@ -71,9 +76,5 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
-    
-    
-    
-    
-    
+      
 }

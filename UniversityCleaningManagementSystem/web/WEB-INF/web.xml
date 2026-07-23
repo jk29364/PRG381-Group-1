@@ -10,6 +10,7 @@
     </servlet-mapping>
     
     <!-- Material Servlet -->
+    <!--
     <servlet>
         <servlet-name>MaterialServlet</servlet-name>
         <servlet-class>controller.MaterialServlet</servlet-class>
@@ -19,4 +20,5 @@
         <servlet-name>MaterialServlet</servlet-name>
         <url-pattern>/MaterialServlet</url-pattern>
     </servlet-mapping>
+        -->
 </web-app>
