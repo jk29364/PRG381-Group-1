@@ -52,7 +52,7 @@
         <div class="container">
             <h2>Login</h2>
             <%
-            String error=(String)request.getAttribute("error");
+            String error=(String)request.getAttribute("errorMessage");
             if(error!=null){
             %>
             <p class="error">

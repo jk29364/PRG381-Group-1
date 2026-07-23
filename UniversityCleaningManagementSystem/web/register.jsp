@@ -57,7 +57,7 @@
         <div class="container">
             <h2>User Registration</h2>
             <%
-            String error=(String)request.getAttribute("error");
+            String error=(String)request.getAttribute("errorMessage");
             if(error!=null){
             %>
             <p class="error"><%=error%></p>
@@ -68,18 +68,21 @@
                 <input
                 type="text"
                 name="fullName"
+                value="<%= request.getAttribute("fullName") != null ? request.getAttribute("fullName") : "" %>"
                 required>
 
                 <label>Username</label>
                 <input
                 type="text"
                 name="username"
+                value="<%= request.getAttribute("username") != null ? request.getAttribute("username") : "" %>"
                 required>
 
                 <label>Email</label>
                 <input
                 type="email"
                 name="email"
+                value="<%= request.getAttribute("email") != null ? request.getAttribute("email") : "" %>"
                 required>
 
                 <label>Password</label>
@@ -96,13 +99,11 @@
 
                 <label>Role</label>
                 <select name="role">
-                    <option value="Storekeeper"> Storekeeper </option>
-                    <option value="Supervisor"> Supervisor </option>
+                    <option value="Storekeeper" <%= "Storekeeper".equals(request.getAttribute("role")) ? "selected" : "" %>> Storekeeper </option>
+                    <option value="Supervisor" <%= "Supervisor".equals(request.getAttribute("role")) ? "selected" : "" %>> Supervisor </option>
                 </select>
 
-                <button type="submit">
-                Register
-                </button>
+                <button type="submit"> Register </button>
 
             </form>
             <br>

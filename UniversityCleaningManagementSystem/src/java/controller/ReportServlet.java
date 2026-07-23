@@ -54,23 +54,21 @@ public class ReportServlet extends HttpServlet {
         //ReportDAO dao = new ReportDAO(); //Required for calling the methods made by the group all based from dao
 
         try {
-        // Example: choose report type via query parameter
+
         String type = request.getParameter("type");
 
-        switch (type) {
-            case "inventory" -> request.setAttribute("inventoryReport", getInventoryReport()); //Requires A method CREATED BY GROUP
-
-            case "lowstock" -> request.setAttribute("lowStockReport", getLowStockItems());  //Requires A method CREATED BY GROUP
-
-            case "issuance" -> request.setAttribute("issuanceHistory", getIssuanceHistory()); //Requires A method CREATED BY GROUP
-
-            case "usage" -> request.setAttribute("materialUsage", getMaterialUsage());  //Requires A method CREATED BY GROUP
-
-            default -> // Optional: handle unknown type
-                request.setAttribute("errorMessage", "Invalid report type requested.");
+        if (type == null) {
+            request.setAttribute("errorMessage", "No report type specified.");
+        } else {
+            switch (type) {
+                case "inventory" -> request.setAttribute("inventoryReport", getInventoryReport());
+                case "lowstock" -> request.setAttribute("lowStockReport", getLowStockItems());
+                case "issuance" -> request.setAttribute("issuanceHistory", getIssuanceHistory());
+                case "usage" -> request.setAttribute("materialUsage", getMaterialUsage());
+                default -> request.setAttribute("errorMessage", "Invalid report type requested.");
+            }
         }
-
-            // Forward to JSP
+            
             request.getRequestDispatcher("reports.jsp").forward(request, response);
 
         } catch (Exception e) {
