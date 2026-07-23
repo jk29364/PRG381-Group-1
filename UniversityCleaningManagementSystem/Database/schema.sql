@@ -22,6 +22,14 @@ CREATE TABLE cleaners (
 );
 
 /*materials table*/
+CREATE TABLE IF NOT EXISTS Materials (
+    materialId SERIAL PRIMARY KEY,
+    materialName VARCHAR(100) NOT NULL,
+    category VARCHAR(50),
+    quantity INT NOT NULL DEFAULT 0,
+    reorderLevel INT NOT NULL DEFAULT 0,
+    supplierId INT NOT NULL DEFAULT 0
+);
 
 /*suppliers table*/
 
