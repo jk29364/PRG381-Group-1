@@ -22,7 +22,6 @@ public class ValidationUtil {
             Pattern.compile("^[\\w.+-]+@[\\w-]+\\.[a-zA-Z]{2,}$");
 
     // At least 8 characters, 1 uppercase, 1 lowercase, 1 digit.
-    // Feel free to add a special-character requirement if your policy needs it.
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$");
 
