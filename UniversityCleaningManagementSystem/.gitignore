@@ -1,7 +1,7 @@
 # NetBeans build folders
-UniversityCleaningManagementSystem/build/
-UniversityCleaningManagementSystem/dist/
-UniversityCleaningManagementSystem/nbproject/private/
+build/
+dist/
+nbproject/private/
 *.class
 
 # Log files
@@ -12,12 +12,12 @@ UniversityCleaningManagementSystem/nbproject/private/
 Thumbs.db
 
 # IDE settings
-/.idea/
-/.vscode/
+.idea/
+.vscode/
 
 # Temporary files
 *.tmp
 *.swp
 
 # Database configuration containing passwords
-UniversityCleaningManagementSystem/src/java/util/db.properties
+src/java/util/db.properties
