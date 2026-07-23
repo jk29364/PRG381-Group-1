@@ -21,4 +21,17 @@
         <url-pattern>/MaterialServlet</url-pattern>
     </servlet-mapping>
         -->
+
+    <!-- Stock Issuance Servlet -->
+    <!--
+    <servlet>
+        <servlet-name>StockIssuanceServlet</servlet-name>
+        <servlet-class>controller.StockIssuanceServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>StockIssuanceServlet</servlet-name>
+        <url-pattern>/StockIssuanceServlet</url-pattern>
+    </servlet-mapping>
+        -->
 </web-app>

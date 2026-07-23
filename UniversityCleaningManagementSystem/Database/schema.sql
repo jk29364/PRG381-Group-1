@@ -23,16 +23,24 @@ CREATE TABLE cleaners (
 
 /*materials table*/
 CREATE TABLE IF NOT EXISTS Materials (
-    materialId SERIAL PRIMARY KEY,
-    materialName VARCHAR(100) NOT NULL,
-    category VARCHAR(50),
-    quantity INT NOT NULL DEFAULT 0,
-    reorderLevel INT NOT NULL DEFAULT 0,
-    supplierId INT NOT NULL DEFAULT 0
+    materialId      SERIAL PRIMARY KEY,
+    materialName    VARCHAR(100) NOT NULL,
+    category        VARCHAR(50),
+    quantity        INT NOT NULL DEFAULT 0,
+    reorderLevel    INT NOT NULL DEFAULT 0,
+    supplierId      INT NOT NULL DEFAULT 0
 );
 
 /*suppliers table*/
 
-/*stock issurance table*/
+/*stock issuance table*/
+CREATE TABLE StockIssuance (
+    issuanceId      SERIAL PRIMARY KEY,
+    materialId      INT NOT NULL REFERENCES Materials(materialId),
+    cleanerId       INT NOT NULL REFERENCES cleaners(cleaner_id),
+    quantityIssued  INT NOT NULL CHECK (quantityIssued > 0),
+    issueDate       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    issuedBy        VARCHAR(100)
+);
 
 
