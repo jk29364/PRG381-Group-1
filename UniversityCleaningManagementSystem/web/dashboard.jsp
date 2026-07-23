@@ -27,5 +27,7 @@
     <p><a href="reports?type=lowstock">View Low Stock Report</a></p>
     <p><a href="reports?type=issuance">View Issuance History</a></p>
     <p><a href="reports?type=usage">View Material Usage</a></p>
+    <p><a href="StockIssuanceServlet?action=issue">Issue Stock</a></p>
+    <p><a href="StockIssuanceServlet">View Stock Issuance History</a></p>
 </body>
 </html>
