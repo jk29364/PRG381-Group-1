@@ -132,12 +132,12 @@ public class MaterialDAO {
     //Update Material
     public boolean updateMaterial(Material material){
         String sql = "UPDATE Materials SET "
-                   + "materialName=?"
-                   + "category=?"
-                   + "quantity=?"
-                   + "reorderLevel=?"
-                   + "supplierId=?"
-                   + "WHERE materialId=?";
+                    + "materialName = ?, "
+                    + "category = ?, "
+                    + "quantity = ?, "
+                    + "reorderLevel = ?, "
+                    + "supplierId = ? "
+                    + "WHERE materialId = ?";
         
         try{
             
