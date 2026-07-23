@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
             // Optional: limit how long an idle session stays alive (in seconds).
             session.setMaxInactiveInterval(30 * 60); // 30 minutes
 
-            response.sendRedirect("dashboard.jsp");
+            response.sendRedirect("landingPage.jsp");
         } else {
             // ---------- Failed login: show a generic error ----------
             // Intentionally vague ("invalid username or password") rather than

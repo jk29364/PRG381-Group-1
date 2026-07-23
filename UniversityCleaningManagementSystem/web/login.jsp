@@ -13,6 +13,7 @@
             body{
                 font-family:Arial;
                 background:#f4f4f4;
+                display: flex;
             }
 
             .container{
@@ -24,6 +25,10 @@
                 box-shadow:0px 0px 10px gray;
             }
 
+            .inputs{
+                margin-right: 25px;
+            }
+            
             input{
                 width:100%;
                 padding:10px;
@@ -60,7 +65,7 @@
             </p>
             <%}%>
             <form action="LoginServlet" method="post">
-
+                <div class="inputs">
                 <label>Username</label>
                 <input
                 type="text"
@@ -72,6 +77,7 @@
                 type="password"
                 name="password"
                 required>
+                </div>
                 
                 <button type="submit"> Login </button>
             </form>

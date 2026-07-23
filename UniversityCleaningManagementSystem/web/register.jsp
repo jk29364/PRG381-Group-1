@@ -25,10 +25,12 @@
                 box-shadow:0px 0px 10px gray;
             }
 
-            input,select{
-                width:100%;
-                padding:10px;
-                margin:8px 0;
+            input, select {
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                box-sizing: border-box;   /* ensures padding is included in width */
+                font-size: 1em;           /* keeps text size consistent */
             }
 
             button{
@@ -39,6 +41,7 @@
                 border:none;
                 cursor:pointer;
             }
+           
 
             button:hover{
                 background:#0056b3;
@@ -64,6 +67,7 @@
             <%}%>
 
             <form action="RegisterServlet" method="post">
+                <div class="inputs">
                 <label>Full Name</label>
                 <input
                 type="text"
@@ -102,6 +106,7 @@
                     <option value="Storekeeper" <%= "Storekeeper".equals(request.getAttribute("role")) ? "selected" : "" %>> Storekeeper </option>
                     <option value="Supervisor" <%= "Supervisor".equals(request.getAttribute("role")) ? "selected" : "" %>> Supervisor </option>
                 </select>
+                </div>
 
                 <button type="submit"> Register </button>
 

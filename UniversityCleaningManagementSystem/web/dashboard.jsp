@@ -75,7 +75,8 @@
         }
 
         .card.warning { border-left-color: #ef4444; }
-
+        .card.clean { border-left-color: #82e88c; }
+        
         .card h2 {
             margin: 0;
             font-size: 2.2em;
@@ -222,8 +223,8 @@
     <div class="top-bar">
         <h1>Cleaning Inventory Dashboard</h1>
         <div>
-            <a href="reports.jsp" class="goBack-btn">View Report</a>
-            <a href="" class="goBack-btn">← Go Back</a>
+            <a href="${pageContext.request.contextPath}/reports" class="goBack-btn">View Report</a>
+            <a href="landingPage.jsp" class="goBack-btn">← Go Back</a>
         </div>
     </div>
 
@@ -232,7 +233,7 @@
             <h2>${totalMaterials}</h2>
             <p>Total Materials</p>
         </div>
-        <div class="card">
+        <div class="card clean">
             <h2>${totalCleaners}</h2>
             <p>Total Cleaners</p>
         </div>
