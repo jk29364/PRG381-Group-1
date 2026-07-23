@@ -20,4 +20,4 @@ Thumbs.db
 *.swp
 
 # Database configuration containing passwords
-/src/util/db.properties
+/src/java/util/db.properties
