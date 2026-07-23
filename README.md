@@ -22,3 +22,10 @@
 - PostgreSQL
 - PostgreSQL JDBC Driver
 - Git
+
+Example db.properties
+```
+db.url=jdbc:postgresql://aws-0-eu-west-3.pooler.supabase.com:5432/postgres
+db.username=postgres.nmugbnyhojhvdxapdazv
+db.password=YOUR_PASSWORD_HERE
+```
