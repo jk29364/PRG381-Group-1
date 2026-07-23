@@ -222,7 +222,7 @@
     <div class="top-bar">
         <h1>Cleaning Inventory Dashboard</h1>
         <div>
-            <a href="reports.jsp" class="goBack-btn">📊 View Report</a>
+            <a href="reports.jsp" class="goBack-btn">View Report</a>
             <a href="" class="goBack-btn">← Go Back</a>
         </div>
     </div>

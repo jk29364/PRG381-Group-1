@@ -1,11 +1,18 @@
 package controller;
 
-import dao.ReportDAO;
+import dao.MaterialDAO;
+import dao.CleanerDAO;
+import dao.StockIssuanceDAO;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import model.Cleaner;
+import model.Material;
+import model.StockIssuance;
 
 import java.io.IOException;
 import java.util.*;
@@ -13,66 +20,38 @@ import java.util.*;
 @WebServlet("/reports")
 public class ReportServlet extends HttpServlet {
     
-    // TEST Inventory Report (all materials)
-    public List<String> getInventoryReport() {
-        List<String> inventory = new ArrayList<>();
-        inventory.add("Mop - Qty: 20");
-        inventory.add("Detergent - Qty: 15");
-        inventory.add("Gloves - Qty: 50");
-        return inventory;
-    }
-
-    // TEST Low Stock Report
-    public List<String> getLowStockItems() {
-        List<String> lowStock = new ArrayList<>();
-        lowStock.add("Detergent - Qty: 2");
-        lowStock.add("Sanitizer - Qty: 1");
-        return lowStock;
-    }
-
-    // TEST Issuance History
-    public List<String> getIssuanceHistory() {
-        List<String> history = new ArrayList<>();
-        history.add("Mop issued to Cleaner A on 2026-07-20");
-        history.add("Gloves issued to Cleaner B on 2026-07-19");
-        return history;
-    }
-
-    // TEST Material Usage Report
-    public Map<String, Integer> getMaterialUsage() {
-        Map<String, Integer> usage = new HashMap<>();
-        usage.put("Mop", 5);
-        usage.put("Detergent", 10);
-        usage.put("Gloves", 8);
-        return usage;
-    }
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        MaterialDAO materialDAO = new MaterialDAO();
+        CleanerDAO cleanerDAO = new CleanerDAO();
+        StockIssuanceDAO issuanceDAO = new StockIssuanceDAO();
 
-        //ReportDAO dao = new ReportDAO(); //Required for calling the methods made by the group all based from dao
+        int totalMaterials = materialDAO.getAllMaterials().size();
+        int lowStockCount = (int) materialDAO.getAllMaterials().stream()
+                .filter(m -> m.getQuantity() <= m.getReorderLevel())
+                .count();
+        int totalCleaners = cleanerDAO.getAllCleaners().size();
+        int totalIssuances = issuanceDAO.getAllIssuances().size();
 
-        try {
+        List<Material> lowStockMaterials = materialDAO.getLowStockMaterials();
+        List<Cleaner> activeCleaners = cleanerDAO.getAllCleaners();
 
-        String type = request.getParameter("type");
+        List<StockIssuance> allIssuances = issuanceDAO.getAllIssuances();
+        List<StockIssuance> recentIssuances = allIssuances.size() > 30
+        ? allIssuances.subList(allIssuances.size() - 30, allIssuances.size())
+        : allIssuances;
 
-        if (type == null) {
-            request.setAttribute("errorMessage", "No report type specified.");
-        } else {
-            switch (type) {
-                case "inventory" -> request.setAttribute("inventoryReport", getInventoryReport());
-                case "lowstock" -> request.setAttribute("lowStockReport", getLowStockItems());
-                case "issuance" -> request.setAttribute("issuanceHistory", getIssuanceHistory());
-                case "usage" -> request.setAttribute("materialUsage", getMaterialUsage());
-                default -> request.setAttribute("errorMessage", "Invalid report type requested.");
-            }
-        }
-            
-            request.getRequestDispatcher("reports.jsp").forward(request, response);
+        request.setAttribute("totalMaterials", totalMaterials);
+        request.setAttribute("lowStockCount", lowStockCount);
+        request.setAttribute("totalCleaners", totalCleaners);
+        request.setAttribute("totalIssuances", totalIssuances);
 
-        } catch (Exception e) {
-            throw new ServletException("Error loading reports", e);
-        }
+        request.setAttribute("lowStockMaterials", lowStockMaterials);
+        request.setAttribute("activeCleaners", activeCleaners);
+        request.setAttribute("recentIssuances", recentIssuances);
+
+        request.getRequestDispatcher("reports.jsp").forward(request, response);
     }
 }
