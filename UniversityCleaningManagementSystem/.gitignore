@@ -1,7 +1,7 @@
 # NetBeans build folders
-/build/
-/dist/
-/nbproject/private/
+UniversityCleaningManagementSystem/build/
+UniversityCleaningManagementSystem/dist/
+UniversityCleaningManagementSystem/nbproject/private/
 *.class
 
 # Log files
@@ -20,4 +20,4 @@ Thumbs.db
 *.swp
 
 # Database configuration containing passwords
-/src/java/util/db.properties
+UniversityCleaningManagementSystem/src/java/util/db.properties
