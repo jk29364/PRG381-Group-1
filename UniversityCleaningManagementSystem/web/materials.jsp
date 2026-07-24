@@ -215,6 +215,24 @@
                 border: 1px solid #FECACA;
             }
 
+            .back-dashboard {
+                display: inline-block;
+                margin-bottom: 20px;
+                padding: 8px 16px;
+                background: #2563EB;
+                color: #FFFFFF;
+                text-decoration: none;
+                border-radius: 8px;
+                font-size: 0.875rem;
+                font-weight: 500;
+                transition: all 0.2s ease;
+            }
+
+            .back-dashboard:hover {
+                background: #1D4ED8;
+                transform: translateY(-1px);
+            }
+
             td:last-child { white-space: nowrap; }
             td:last-child a { margin: 0 2px; }
 
@@ -226,6 +244,11 @@
         
     </head>
     <body>
+        
+        <a href="landingPage.jsp" class="back-dashboard">
+        ← Back to Menu
+        </a>
+        
         <h1>Materials Management</h1>
         
         <!--Search form-->
