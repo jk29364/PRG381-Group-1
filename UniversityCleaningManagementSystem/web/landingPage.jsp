@@ -17,15 +17,23 @@
             padding: 0;
         }
 
+        html, body {
+            height: 100%;
+        }
+
         body {
             font-family: 'Inter', Arial, sans-serif;
             background: #eef1f6;
             margin: 0;
             padding: 0;
             color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .page {
+            flex: 1 0 auto;
             padding: 32px 40px 0;
         }
 
@@ -129,6 +137,7 @@
             width: 100%;
             border-top: 1px solid #e2e8f0;
             box-shadow: 0 -1px 3px rgba(0,0,0,0.04);
+            flex-shrink: 0;
         }
 
         .footer-grid {
