@@ -343,7 +343,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
             max-width: 1080px;
             margin: 0 auto 30px;
@@ -544,14 +544,6 @@
                 <p>Cleaning Inventory &amp; Issuance System</p>
                 <p>Version 1.0.0</p>
                 <p class="status-ok">All systems operational</p>
-            </div>
-            <div class="footer-col">
-                <h4>Policies</h4>
-                <ul>
-                    <li><a href="#">Stock Handling Policy</a></li>
-                    <li><a href="#">Chemical Safety Guide</a></li>
-                    <li><a href="#">Data Access Policy</a></li>
-                </ul>
             </div>
         </div>
         <div class="footer-bottom">
