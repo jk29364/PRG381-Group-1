@@ -228,14 +228,6 @@
                 <h2>Materials</h2>
                 <p>View and manage cleaning materials</p>
             </a>
-            <a href="addMaterial.jsp" class="nav-card">
-                <h2>Add Material</h2>
-                <p>Register a new material into stock</p>
-            </a>
-            <a href="editMaterial.jsp" class="nav-card">
-                <h2>Edit Material</h2>
-                <p>Update details for an existing material</p>
-            </a>
         </div>
     </div>
 
@@ -246,24 +238,12 @@
                 <h2>Cleaners</h2>
                 <p>View and manage cleaner records</p>
             </a>
-            <a href="addCleaner.jsp" class="nav-card clean">
-                <h2>Add Cleaner</h2>
-                <p>Register a new cleaner</p>
-            </a>
-            <a href="editCleaner.jsp" class="nav-card clean">
-                <h2>Edit Cleaner</h2>
-                <p>Update details for an existing cleaner</p>
-            </a>
         </div>
     </div>
 
     <div class="section">
         <h3>Stock Issuance</h3>
         <div class="section-grid">
-            <a href="issueStock.jsp" class="nav-card warning">
-                <h2>Issue Stock</h2>
-                <p>Issue materials to a cleaner</p>
-            </a>
             <a href="${pageContext.request.contextPath}/StockIssuanceServlet" class="nav-card warning">
                 <h2>Issuance History</h2>
                 <p>View past stock issuances</p>

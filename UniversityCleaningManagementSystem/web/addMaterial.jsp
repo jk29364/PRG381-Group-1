@@ -218,12 +218,7 @@
             </form>
             
             <!--Back button-->
-                <button
-                    class="back"
-                    href="MaterialServlet">
-                    
-                    Back to Materials
-                </button>
+            <a class="back" href="MaterialServlet">Back to Materials</a>
             
         </div>
         
