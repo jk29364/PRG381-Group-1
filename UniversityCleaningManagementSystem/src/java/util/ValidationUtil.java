@@ -19,7 +19,7 @@ public class ValidationUtil {
 
     // Basic but practical email pattern: something@something.tld
     private static final Pattern EMAIL_PATTERN =
-            Pattern.compile("^[\\w.+-]+@[\\w-]+\\.[a-zA-Z]{2,}$");
+            Pattern.compile("^[\\w.+-]+@(?:[\\w-]+\\.)+[a-zA-Z]{2,}$");
 
     // At least 8 characters, 1 uppercase, 1 lowercase, 1 digit.
     private static final Pattern PASSWORD_PATTERN =
