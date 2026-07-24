@@ -114,6 +114,7 @@
         .nav-card.warning { border-left-color: #ef4444; }
         .nav-card.dash { border-left-color: #be82e8; }
         .nav-card.clean { border-left-color: #82e88c; }
+        .nav-card.yellow { border-left-color: #fcba03; }
 
         .nav-card h2 {
             margin: 0;
@@ -237,6 +238,16 @@
             <a href="cleaners.jsp" class="nav-card clean">
                 <h2>Cleaners</h2>
                 <p>View and manage cleaner records</p>
+            </a>
+        </div>
+    </div>
+                
+    <div class="section">
+        <h3>Suppliers</h3>
+        <div class="section-grid">
+            <a href="suppliers.jsp" class="nav-card yellow">
+                <h2>Suppliers</h2>
+                <p>View and manage supplier records</p>
             </a>
         </div>
     </div>
