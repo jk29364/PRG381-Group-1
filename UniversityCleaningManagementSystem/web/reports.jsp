@@ -128,7 +128,7 @@
 <body>
     <div class="top-bar">
       <h1>Inventory & Operations Report</h1>
-      <a href="${pageContext.request.contextPath}/dashboard" class="goBack-btn">Back to Dashboard</a>
+      <a href="landingPage.jsp" class="goBack-btn">Go Back</a>
     </div>
 
     <div class="kpi-grid">

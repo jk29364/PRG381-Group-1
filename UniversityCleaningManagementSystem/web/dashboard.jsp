@@ -223,7 +223,6 @@
     <div class="top-bar">
         <h1>Cleaning Inventory Dashboard</h1>
         <div>
-            <a href="${pageContext.request.contextPath}/reports" class="goBack-btn">View Report</a>
             <a href="landingPage.jsp" class="goBack-btn">← Go Back</a>
         </div>
     </div>
