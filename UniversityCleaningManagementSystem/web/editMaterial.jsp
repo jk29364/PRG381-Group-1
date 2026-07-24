@@ -17,71 +17,140 @@
         
         <style>
             
-            body{
-            font-family:Arial, sans-serif;
-            background:#f4f4f4;
-            margin:40px;
-        }
+            *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container{
+            body {
+                font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                background: #F8FAFC;
+                min-height: 100vh;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                padding: 52px 16px 64px;
+                color: #0F172A;
+                -webkit-font-smoothing: antialiased;
+                line-height: 1.5;
+            }
 
-            width:500px;
-            margin:auto;
-            background:white;
-            padding:25px;
-            border-radius:8px;
-            box-shadow:0px 0px 10px #999;
+            body > div {
+                width: 100%;
+                max-width: 500px;
+                background: #FFFFFF;
+                padding: 32px 36px 36px;
+                border-radius: 12px;
+                box-shadow:
+                    0 1px 3px rgba(0, 0, 0, 0.05),
+                    0 4px 12px rgba(0, 0, 0, 0.03);
+                border: 1px solid #E2E8F0;
+            }
 
-        }
+            h2 {
+                text-align: center;
+                font-size: 1.125rem;
+                font-weight: 600;
+                letter-spacing: -0.01em;
+                color: #0F172A;
+                margin-bottom: 24px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #F1F5F9;
+            }
 
-        h2{
+            label {
+                display: block;
+                margin-top: 18px;
+                margin-bottom: 6px;
+                font-size: 0.8125rem;
+                font-weight: 500;
+                color: #374151;
+            }
 
-            text-align:center;
+            input[type="text"],
+            input[type="number"] {
+                width: 100%;
+                padding: 9px 12px;
+                border: 1px solid #E2E8F0;
+                border-radius: 8px;
+                font-size: 0.9rem;
+                font-family: inherit;
+                color: #0F172A;
+                background: #FFFFFF;
+                transition: all 0.15s ease-in-out;
+                outline: none;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) inset;
+            }
 
-        }
+            input[type="text"]:hover,
+            input[type="number"]:hover {
+                border-color: #CBD5E1;
+            }
 
-        label{
+            input[type="text"]:focus,
+            input[type="number"]:focus {
+                border-color: #2563EB;
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+            }
 
-            display:block;
-            margin-top:15px;
-            font-weight:bold;
+            .submit {
+                display: block;
+                width: 100%;
+                margin-top: 24px;
+                padding: 10px 16px;
+                border: none;
+                border-radius: 8px;
+                background: #2563EB;
+                color: #FFFFFF;
+                font-family: inherit;
+                font-size: 0.9rem;
+                font-weight: 500;
+                letter-spacing: -0.01em;
+                cursor: pointer;
+                transition: all 0.15s ease-in-out;
+                box-shadow: 0 1px 2px rgba(37, 99, 235, 0.16);
+            }
 
-        }
+            .submit:hover {
+                background: #1D4ED8;
+                box-shadow: 0 2px 10px rgba(37, 99, 235, 0.28);
+                transform: translateY(-1px);
+            }
 
-        input{
+            .submit:active {
+                transform: translateY(0);
+                background: #1E40AF;
+                box-shadow: none;
+            }
 
-            width:100%;
-            padding:10px;
-            margin-top:5px;
+            .submit:focus-visible {
+                outline: 2px solid #2563EB;
+                outline-offset: 2px;
+            }
 
-        }
+            .back {
+                display: block;
+                text-align: center;
+                margin-top: 10px;
+                padding: 9px 16px;
+                border: 1px solid #E2E8F0;
+                border-radius: 8px;
+                background: transparent;
+                color: #64748B;
+                font-family: inherit;
+                font-size: 0.875rem;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.15s ease-in-out;
+            }
 
-        .button{
+            .back:hover {
+                background: #F8FAFC;
+                border-color: #CBD5E1;
+                color: #0F172A;
+            }
 
-            width:100%;
-            margin-top:20px;
-            padding:12px;
-            background:#0d6efd;
-            color:white;
-            border:none;
-            cursor:pointer;
-            font-size:16px;
-
-        }
-
-        .button:hover{
-
-            background:#0b5ed7;
-
-        }
-
-        .back{
-
-            display:block;
-            text-align:center;
-            margin-top:15px;
-
-        }
+            .back:focus-visible {
+                outline: 2px solid #2563EB;
+                outline-offset: 2px;
+            }
             
         </style>
     </head>
